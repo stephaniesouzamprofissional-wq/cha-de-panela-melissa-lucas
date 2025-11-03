@@ -2,80 +2,241 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chá de Panela - Melissa & Lucas</title>
-  
-  <!-- Font Awesome para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <title>Chá de Panela – Melissa & Lucas</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff0f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff8f0;
       color: #333;
-      padding: 20px;
-    }
-    h1, h2 {
-      text-align: center;
-      color: #d63384;
-    }
-    ul {
-      list-style: none;
+      margin: 0;
       padding: 0;
     }
-    li {
-      background: #ffe4e1;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
-    }
-    input[type="checkbox"] {
-      transform: scale(1.2);
-      margin-right: 10px;
-    }
-    .pix {
-      background: #fff0f5;
-      border: 2px dashed #d63384;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 10px;
+    header, footer {
       text-align: center;
-      font-size: 1.1em;
+      padding: 20px;
+      background: #ffd6d6;
+      color: #333;
     }
-    .item-icon {
-      font-size: 1.2em;
+    header h1 {
+      margin: 0;
+      font-size: 2em;
     }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #ffb6b6;
+    }
+    nav button {
+      padding: 12px 18px;
+      margin: 5px;
+      border: none;
+      background: #ff7f7f;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: #ff4d6d;
+    }
+    section {
+      display: none;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff0f0;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: #ff4d6d;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      padding: 5px 0;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    li:hover {
+      background: #ffe0e0;
+      border-radius: 5px;
+    }
+    li.checked {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .boneca {
+      display: block;
+      margin: 20px auto;
+      max-width: 150px;
+      border-radius: 50%;
+    }
+    .cores {
+      display: flex;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .cor {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .cor-preto { background: #000; }
+    .cor-cinza { background: #888; }
   </style>
 </head>
 <body>
 
-  <h1>Chá de Panela 💕</h1>
-  <h2>Melissa & Lucas 👫</h2>
+<header>
+  <h1>Melissa e Lucas vão casar!! 👩🏽‍❤️‍💋‍👨🏻</h1>
+  <p>Chá de Panela Virtual</p>
+</header>
 
-  <h2>Lista de Presentes 🎁</h2>
-  <ul>
-    <li><label><input type="checkbox"> <span class="item-icon">🍳</span> Conjunto de panelas</label></li>
-    <li><label><input type="checkbox"> <span class="item-icon">🥄</span> Jogo de talheres</label></li>
-    <li><label><input type="checkbox"> <span class="item-icon">🍽️</span> Pratos e tigelas</label></li>
-    <li><label><input type="checkbox"> <span class="item-icon">❤️</span> Toalhas de mesa</label></li>
-    <li><label><input type="checkbox"> <span class="item-icon">☕</span> Copos e xícaras</label></li>
-    <li><label><input type="checkbox"> <span class="item-icon">🛋️</span> Itens de decoração</label></li>
-    <!-- Adicione mais itens seguindo este padrão -->
-  </ul>
+<nav>
+  <button onclick="showTab('sobre')">Sobre</button>
+  <button onclick="showTab('cores')">Cores</button>
+  <button onclick="showTab('cozinha')">Cozinha</button>
+  <button onclick="showTab('lavanderia')">Lavanderia</button>
+  <button onclick="showTab('banheiro')">Banheiro</button>
+  <button onclick="showTab('sala')">Sala</button>
+  <button onclick="showTab('quarto')">Quarto</button>
+  <button onclick="showTab('mensagem')">Mensagem</button>
+</nav>
 
-  <div class="pix">
-    <h2>Contribuição via PIX 💰</h2>
-    <p>Melissa: <strong>melissa.lima.sv@gmail.com</strong></p>
-    <p>Lucas: <strong>(21) 98724-9698</strong></p>
+<section id="sobre" class="active">
+  <h2>Sobre o Chá de Panela</h2>
+  <p>Melissa e Lucas estão começando uma nova etapa muito especial: o primeiro lar juntos! Como todo começo, é cheio de sonhos, planos e também de muitas coisinhas que ainda faltam. Por isso, criamos uma lista de presentes para quem quiser colaborar com o enxoval do casal.</p>
+  <p>Caso prefira, você também pode contribuir através de Pix: <strong>melissa.lima.sv@gmail.com ou (21) 98724-9698</strong></p>
+  <p>Toda contribuição será recebida com muito carinho e gratidão.</p>
+  <img src="boneca-melissa-negra.png" alt="Boneca da Melissa com pele negra" class="boneca">
+</section>
+
+<section id="cores">
+  <h2>Cores do Enxoval</h2>
+  <div class="cores">
+    <div class="cor cor-preto"></div>
+    <div class="cor cor-cinza"></div>
   </div>
+  <p>Favor observar as cores que escolhemos.</p>
+</section>
 
-  <p style="text-align:center; font-size:0.9em; color:#666;">
-    Marque os itens que você já comprou para facilitar o acompanhamento!
-  </p>
+<section id="cozinha">
+  <h2>Cozinha 🍳</h2>
+  <ul>
+    <li>Jogo de panelas 🍲</li>
+    <li>Frigideira antiaderente 🍳</li>
+    <li>Conjunto de utensílios (concha, espátula, etc.) 🥄</li>
+    <li>Conjunto de potes pequenos 🥡</li>
+    <li>Conjunto de potes médios 🥘</li>
+    <li>Conjunto de potes grandes 🍱</li>
+    <li>Escorredor de louça 🧼</li>
+    <li>Conjunto de facas 🔪</li>
+    <li>Tábuas de corte 🪵</li>
+    <li>Conjunto de copos 🥛</li>
+    <li>Conjunto de taças 🍷</li>
+    <li>Conjunto de pratos 🍽️</li>
+    <li>Jogo de talheres 🍴</li>
+    <li>Jarra de suco 🥤</li>
+    <li>Conjunto de xícaras ou canecas ☕</li>
+    <li>Conjunto de panos de prato 🧻</li>
+    <li>Potes para temperos 🧂</li>
+    <li>Formas e assadeiras 🍰</li>
+    <li>Batedeira 🥣</li>
+    <li>Liquidificador 🥤</li>
+    <li>Cafeteira ☕</li>
+    <li>Sanduicheira ou grill 🥪</li>
+    <li>Multiprocessador 🥬</li>
+    <li>Travessas de vidro 🍲</li>
+    <li>Potes herméticos 🥫</li>
+    <li>Jogo de sobremesas 🍮</li>
+    <li>Kit pia 🧽</li>
+  </ul>
+</section>
+
+<section id="lavanderia">
+  <h2>Lavanderia e Limpeza 🧺</h2>
+  <ul>
+    <li>Baldes 🪣</li>
+    <li>Rodo, vassoura e pá 🧹</li>
+    <li>Ferro 🪡</li>
+    <li>Tábua de passar 🧵</li>
+    <li>Cesto de roupas 🧺</li>
+    <li>Pregadores e varal 🧷</li>
+    <li>Dispenser para sabão em pó 🧴</li>
+    <li>Escova para esfregar tecidos 🪥</li>
+    <li>Panos de chão 🧻</li>
+  </ul>
+</section>
+
+<section id="banheiro">
+  <h2>Banheiro 🛁</h2>
+  <ul>
+    <li>Jogo de toalhas 🛏️</li>
+    <li>Tapete de banheiro 🧶</li>
+    <li>Porta-sabonete e porta-escova 🧼</li>
+    <li>Lixeira pequena 🗑️</li>
+    <li>Kit organizador 🗃️</li>
+  </ul>
+</section>
+
+<section id="sala">
+  <h2>Sala 🛋️</h2>
+  <ul>
+    <li>Almofadas decorativas 🛋️</li>
+    <li>Manta para sofá 🛏️</li>
+    <li>Porta-retratos 🖼️</li>
+    <li>Vaso ou item decorativo 🌸</li>
+  </ul>
+</section>
+
+<section id="quarto">
+  <h2>Quarto 🛌</h2>
+  <ul>
+    <li>Jogo de lençol casal 🛏️</li>
+    <li>Edredom 🛏️</li>
+    <li>Cobre-leito 🛌</li>
+    <li>Travesseiros 🛌</li>
+    <li>Fronhas extras 🛏️</li>
+    <li>Cortina 🪟</li>
+    <li>Cabides 👕</li>
+    <li>Ventilador 🌬️</li>
+  </ul>
+</section>
+
+<section id="mensagem">
+  <h2>Mensagem Final 💌</h2>
+  <p>Mais do que presentes, o que mais desejamos é o carinho e a energia positiva de todos que torcem por nós nesse novo começo.</p>
+  <p>Com amor, <br>Melissa e Lucas</p>
+</section>
+
+<footer>
+  <p>Obrigado por celebrar conosco! 💖</p>
+</footer>
+
+<script>
+  function showTab(tabId) {
+    document.querySelectorAll('section').forEach(sec => {
+      sec.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  // Marcar itens clicados
+  document.querySelectorAll('li').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('checked');
+    });
+  });
+</script>
 
 </body>
 </html>

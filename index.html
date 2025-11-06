@@ -238,5 +238,29 @@
   });
 </script>
 
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbx51bwocuvXOXN4jdVjftbVaisUf63_nqc_ofI_hTtwD-7nh2epf4EbTrPG6I2cRM1e/exec";
+
+async function carregarLista() {
+  const response = await fetch(scriptURL);
+  const itens = await response.json();
+
+  const container = document.getElementById("lista");
+
+  itens.forEach(item => {
+    const linha = document.createElement("div");
+    linha.innerHTML = `
+      <strong>${item.Categoria}</strong> — ${item.Item}
+      ${item.Escolhido === "SIM" ? 
+        `<span style="color:gray;">(✔️ Escolhido por ${item["Por quem"]})</span>` : 
+        `<button>Escolher</button>`}
+    `;
+    container.appendChild(linha);
+  });
+}
+
+carregarLista();
+</script>
+
 </body>
 </html>
